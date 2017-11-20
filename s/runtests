@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+set -o pipefail
+
+BASEDIR=$(cd "$(dirname "$0")"/..; pwd -P)
+
+cd $BASEDIR
+export HASHABLE_SALT=random
+time stack test --flag paradox:static --flag test-preproc:static
+
+

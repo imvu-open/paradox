@@ -1,0 +1,29 @@
+resolver: lts-8.22
+
+packages:
+- '.'
+- location:
+    git: git@github.com:merc1031/test-preproc.git
+    commit: 9d19f5dc803050b6f8755b29d33964822037ee01
+  extra-dep: true
+- location:
+    git: git@github.com:imvu-open/hs-istatd-client.git
+    commit: 91e92cca9f3aba13069a59dee99d595c52d33112
+  extra-dep: true
+
+extra-deps:
+- dtw-1.0.3.0
+
+ghc-options:
+  "*": -j
+
+system-ghc: true
+
+
+flags:
+  paradox:
+    static: false
+  test-preproc:
+    static: false
+
+

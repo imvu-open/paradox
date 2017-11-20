@@ -1,0 +1,261 @@
+Copyright &copy; 2011-2014 IMVU, Inc
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+Other open source software used by PARADOX that is released under the MIT 
+software license.  Copyright for the software listed below is held by 
+their respective owners.
+
+backbone.js          v1.1.2  http://backbonejs.com
+dygraph-*.js         v1.0.1  http://dygraphs.com
+jquery-cookie.js     v1.4.1  http://github.com/carhartl/jquery-cookie/tree/v1.4.1
+jquery-ui.js         v1.11.4 https://github.com/jquery/jquery-ui/tree/1.11.4
+jquery.js            v2.1.1  http://jquery.com
+jstree.js            v3.0.2  http://www.jstree.com
+underscore.js        v1.6.0  http://underscorejs.com
+require.js           v2.1.16 https://github.com/jrburke/requirejs/tree/2.1.16
+domready.js          v2.0.1  https://github.com/requirejs/domReady/tree/2.0.1
+
+
+Other open source software used by PARADOX that is released under the
+LGPL v2.1 software license.  Copyright for the software listed below is
+held by their respective owners.
+
+sha256.js                    http://www.movable-type.co.uk/scripts/sha256.html
+
+Open source haskell libraries used via cabal and stack by PARADOX are listed below
+
+#stack list-dependencies --no-include-base --test --bench --license
+Cabal BSD3
+Chart BSD3
+Chart-diagrams BSD3
+FontyFruity BSD3
+GenericPretty BSD3
+HTTP BSD3
+HUnit BSD3
+JuicyPixels BSD3
+MemoTrie BSD3
+MonadRandom BSD3
+QuickCheck BSD3
+Rasterific BSD3
+SVGFonts BSD3
+Spock BSD3
+Spock-core BSD3
+StateVar BSD3
+active BSD3
+adjunctions BSD3
+aeson BSD3
+aeson-pretty BSD3
+ansi-wl-pprint BSD3
+appar BSD3
+asn1-encoding BSD3
+asn1-parse BSD3
+asn1-types BSD3
+async BSD3
+attoparsec BSD3
+attoparsec-iso8601 BSD3
+base-compat MIT
+base-orphans MIT
+base16-bytestring BSD3
+base64-bytestring BSD3
+bifunctors BSD3
+binary BSD3
+blaze-builder BSD3
+blaze-html BSD3
+blaze-markup BSD3
+blaze-svg BSD3
+byteable BSD3
+bytes BSD3
+bytestring BSD3
+bytestring-builder BSD3
+bytestring-trie BSD3
+cabal-doctest BSD3
+case-insensitive BSD3
+cereal BSD3
+cereal-vector BSD3
+cmdargs BSD3
+comonad BSD3
+connection BSD3
+containers BSD3
+contravariant BSD3
+cookie MIT
+cpphs LGPL Nothing
+cryptohash BSD3
+cryptonite BSD3
+data-default BSD3
+data-default-instances-containers BSD3
+data-default-instances-dlist BSD3
+data-default-instances-old-locale BSD3
+data-lens-light MIT
+deepseq BSD3
+deepseq-generics BSD3
+diagrams-core BSD3
+diagrams-lib BSD3
+diagrams-postscript BSD3
+diagrams-svg BSD3
+directory BSD3
+distributive BSD3
+dlist BSD3
+double-conversion BSD3
+dtw MIT
+dual-tree BSD3
+easy-file BSD3
+either BSD3
+exceptions BSD3
+expiring-cache-map BSD3
+fail BSD3
+fast-logger BSD3
+filemanip BSD3
+foundation BSD3
+free BSD3
+fsnotify BSD3
+ghc-prim BSD3
+gitrev BSD3
+hashable BSD3
+haskeline BSD3
+haskell-src-exts BSD3
+haskell-src-meta BSD3
+hex BSD3
+hinotify BSD3
+hourglass BSD3
+hs-istatd-client AllRightsReserved
+http-api-data BSD3
+http-client MIT
+http-client-tls MIT
+http-date BSD3
+http-types BSD3
+http2 BSD3
+integer-gmp BSD3
+integer-logarithms MIT
+interpolatedstring-perl6 PublicDomain
+intervals BSD3
+iproute BSD3
+kan-extensions BSD3
+language-haskell-extract BSD3
+lens BSD3
+lifted-base BSD3
+linear BSD3
+list-t MIT
+lucid BSD3
+lucid-svg BSD3
+math-functions BSD3
+megaparsec BSD2
+memory BSD3
+mime-mail MIT
+mime-types MIT
+mmorph BSD3
+monad-control BSD3
+monoid-extras BSD3
+mtl BSD3
+multiset BSD3
+mwc-random BSD3
+nats BSD3
+network BSD3
+network-uri BSD3
+old-time BSD3
+operational BSD3
+optparse-applicative BSD3
+optparse-simple BSD3
+paradox OtherLicense
+parallel BSD3
+parsec BSD3
+pem BSD3
+polyparse LGPL Nothing
+pretty BSD3
+pretty-show MIT
+primitive BSD3
+process BSD3
+profunctors BSD3
+psqueues BSD3
+quickcheck-instances BSD3
+random BSD3
+rasterific-svg BSD3
+reflection BSD3
+regex-base BSD3
+regex-compat BSD3
+regex-pcre BSD3
+regex-posix BSD3
+regex-tdfa BSD3
+reroute MIT
+resource-pool BSD3
+resourcet BSD3
+rts BSD3
+scientific BSD3
+scotty BSD3
+semigroupoids BSD3
+simple-sendfile BSD3
+smtp-mail BSD3
+socks BSD3
+statestack BSD3
+stm BSD3
+stm-chans BSD3
+stm-containers MIT
+streaming-commons MIT
+stringsearch BSD3
+superbuffer BSD3
+svg-builder BSD3
+svg-tree BSD3
+tagged BSD3
+tasty MIT
+tasty-hunit MIT
+tasty-quickcheck MIT
+tasty-th BSD3
+template-haskell BSD3
+test-framework BSD3
+test-framework-hunit BSD3
+test-preproc UnspecifiedLicense
+text BSD3
+tf-random BSD3
+th-expand-syns BSD3
+th-lift BSD3
+th-lift-instances BSD3
+th-orphans BSD3
+th-reify-many BSD3
+time BSD3
+time-lens BSD3
+time-locale-compat BSD3
+timezone-olson BSD3
+timezone-series BSD3
+tls BSD3
+transformers-base BSD3
+transformers-compat BSD3
+tuple BSD3
+unix BSD3
+unix-compat BSD3
+unix-time BSD3
+unordered-containers BSD3
+uri-bytestring BSD3
+uuid-types BSD3
+vault BSD3
+vector BSD3
+vector-algorithms BSD3
+vector-space BSD3
+vector-th-unbox BSD3
+wai MIT
+wai-extra MIT
+wai-logger BSD3
+wai-middleware-static BSD3
+warp MIT
+x509 BSD3
+x509-store BSD3
+x509-system BSD3
+x509-validation BSD3
+xml BSD3
+zlib BSD3
+

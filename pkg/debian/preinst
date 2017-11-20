@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if ! getent group paradox >/dev/null; then
+    addgroup --system paradox >/dev/null
+fi
+
+if ! getent passwd paradox >/dev/null; then
+    adduser --system --disabled-login --ingroup paradox --gecos "Paradox User" --shell /bin/false paradox >/dev/null
+fi

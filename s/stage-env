@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -ex
+set -o pipefail
+
+BASEDIR=$(cd "$(dirname "$0")"/..; pwd -P)
+STAGEBASE=$BASEDIR/dist/staging
+
+PROJECT_TAG="$1"
+REV="$2"
+
+. /etc/lsb-release
+
+FLAVOR=${PROJECT_TAG#paradox-}
+
+pushd $STAGEBASE
+jfrog rt upload --flat=false "${PROJECT_TAG}-$REV.tar.bz2" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+popd
+
+UNPACKDIR=$STAGEBASE/unpack-dir-$RANDOM
+mkdir -p $UNPACKDIR
+pushd $UNPACKDIR
+tar -xjvf "$STAGEBASE/${PROJECT_TAG}-$REV.tar.bz2"
+
+for f in files bin; do
+  jfrog rt upload --flat=false "$f/" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+done
+
+popd
+
+rm -rf $UNPACKDIR

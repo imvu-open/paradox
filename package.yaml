@@ -1,0 +1,270 @@
+name: paradox
+version: '1.11.0.0'
+author: Leonidas Loucas
+maintainer: merc1031@gmail.com
+license: OtherLicense
+library:
+  source-dirs: src
+  ghc-options:
+  - -Wall
+  - -Werror
+  - -fexcess-precision
+  - -optc-O3
+  - -optc-ffast-math
+  exposed-modules:
+  - Language.Paradox.Eval
+  - Language.Paradox.Eval.Aliases
+  - Language.Paradox.Eval.Help
+  - Language.Paradox.Eval.Symbols
+  - Language.Paradox.Eval.TypeRep.Help
+  - Language.Paradox.Eval.TypeRep.Parse
+  - Language.Paradox.Eval.Types
+  - Language.Paradox.Grammar
+  - Language.Paradox.Util
+  - Network.Wai.Middleware.RequestTimer
+  - Paradox.Anomaly
+  - Paradox.Cache
+  - Paradox.Cache.Internal
+  - Paradox.Debug
+  - Paradox.Error
+  - Paradox.Error.Types
+  - Paradox.Eval
+  - Paradox.Eval.Types
+  - Paradox.Events
+  - Paradox.Events.Types
+  - Paradox.Functions
+  - Paradox.Functions.Filter
+  - Paradox.Functions.Generate
+  - Paradox.Functions.Math
+  - Paradox.Functions.Math.TimeSeries
+  - Paradox.Functions.Math.TimeSeriesChunk
+  - Paradox.Functions.Transform
+  - Paradox.Functions.Util
+  - Paradox.Handlers.Istatd
+  - Paradox.Handlers.Log
+  - Paradox.Istatd
+  - Paradox.Istatd.AsyncClient
+  - Paradox.Istatd.Cache.Types
+  - Paradox.Istatd.CounterMap
+  - Paradox.Istatd.CounterTree
+  - Paradox.Istatd.Functions
+  - Paradox.Istatd.Lifted
+  - Paradox.Istatd.TextUtil
+  - Paradox.Istatd.Types
+  - Paradox.Istatd.Types.QuickCheck
+  - Paradox.Istatd.Util
+  - Paradox.Logger
+  - Paradox.Logger.Global
+  - Paradox.Logger.Types
+  - Paradox.Logic
+  - Paradox.Main
+  - Paradox.Memo
+  - Paradox.Memo.Internal
+  - Paradox.Render
+  - Paradox.Render.LocalFonts
+  - Paradox.Repl
+  - Paradox.Routes
+  - Paradox.Shell.Types
+  - Paradox.State
+  - Paradox.Types
+  - Paradox.Util
+  - Paradox.Version
+  dependencies:
+  - base >=4.6 && <5
+  - Chart
+  - Chart-diagrams
+  - GenericPretty
+  - HTTP
+  - JuicyPixels
+  - QuickCheck
+  - SVGFonts
+  - Spock
+  - aeson
+  - aeson-pretty
+  - async
+  - attoparsec
+  - base64-bytestring
+  - blaze-builder
+  - blaze-html
+  - blaze-svg
+  - bytestring
+  - bytestring-trie
+  - case-insensitive
+  - colour
+  - containers
+  - data-default
+  - deepseq
+  - deepseq-generics
+  - diagrams-lib
+  - diagrams-svg
+  - directory
+  - double-conversion
+  - dtw
+  - exceptions
+  - fast-logger
+  - filepath
+  - hashable
+  - haskeline
+  - hex
+  - hs-istatd-client
+  - http-client
+  - http-client-tls
+  - http-types
+  - language-haskell-extract
+  - lens
+  - lifted-base
+  - lucid-svg
+  - megaparsec
+  - mime-mail
+  - monad-control
+  - mtl
+  - multiset
+  - network
+  - optparse-applicative
+  - optparse-simple
+  - parallel
+  - pretty-show
+  - process
+  - quickcheck-instances
+  - random
+  - rasterific-svg
+  - regex-compat
+  - regex-pcre
+  - safe
+  - scotty
+  - semigroups
+  - smtp-mail
+  - split
+  - stm
+  - stm-chans
+  - stm-containers
+  - svg-builder
+  - svg-tree
+  - text
+  - time
+  - time-lens
+  - timezone-olson
+  - timezone-series
+  - transformers
+  - transformers-base
+  - unix
+  - unordered-containers
+  - vector
+  - wai
+  - wai-extra
+  - wai-middleware-static
+  - warp
+  when:
+  - condition: flag(aggressive)
+    then:
+      ghc-options: -O3
+    else:
+      ghc-options: -O2
+  - condition: flag(profiling)
+    ghc-options:
+    - -Wall
+    - -fprof-auto
+    - -fprof-auto-calls
+    - -auto-all
+    - -fforce-recomp
+executables:
+  paradox:
+    main: paradox-main.hs
+    source-dirs: paradox
+    ghc-options:
+    - -Wall
+    - -rtsopts
+    - -fwarn-tabs
+    - -fwarn-incomplete-uni-patterns
+    - -threaded
+    - -g
+    - -fexcess-precision
+    - -optc-O3
+    - -optc-ffast-math
+    dependencies:
+    - base >=4.6 && <5
+    - paradox
+    when:
+    - condition: flag(aggressive)
+      then:
+        ghc-options: -O3
+      else:
+        ghc-options: -O2
+    - condition: flag(profiling)
+      then:
+        ghc-options:
+        - -Wall
+        - -fprof-auto
+        - -fprof-auto-calls
+        - -auto-all
+        - -fforce-recomp
+        - -rtsopts
+        - >-
+          "-with-rtsopts=-T -p -s -h -i0.1"
+      else:
+        ghc-options:
+        - >-
+          "-with-rtsopts=-T -A50m -K16536K"
+    - condition: flag(eventlog)
+      ghc-options: >-
+        "-with-rtsopts=-l"
+    - condition: flag(static)
+      ld-options:
+      - -static
+      - -pthread
+      - --verbose
+tests:
+  paradox-lib-tests:
+    main: ../tests/MainTestSuite.hs
+    source-dirs: tests
+    ghc-options:
+    - -Wall
+    dependencies:
+    - base
+    - paradox
+    - test-preproc
+    - HUnit
+    - QuickCheck
+    - bytestring
+    - containers
+    - data-default
+    - directory
+    - filemanip
+    - filepath
+    - hashable
+    - interpolatedstring-perl6
+    - megaparsec
+    - quickcheck-instances
+    - semigroups
+    - split
+    - tasty
+    - tasty-hunit
+    - tasty-quickcheck
+    - tasty-th
+    - test-framework
+    - test-framework-hunit
+    - text
+    - time
+    - unordered-containers
+    when:
+    - condition: flag(static)
+      ld-options:
+      - -static
+      - -pthread
+flags:
+  aggressive:
+    description: ! '"Enable aggressive optimization"'
+    manual: true
+    default: false
+  eventlog:
+    description: ! '"Enable event log tracing"'
+    manual: true
+    default: false
+  static:
+    description: ! '"Enable static linking"'
+    manual: true
+    default: true
+  profiling:
+    description: ! '"Enable profiling"'
+    manual: true
+    default: false

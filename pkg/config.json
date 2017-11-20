@@ -1,0 +1,56 @@
+{
+    "target" : "http://localhost:18111",
+    "host" : "localhost",
+    "user" : "istatd",
+    "password" : "istatd",
+    "query_timer" : 120000000,
+    "use_auth" : false,
+    "port" : 3001,
+    "istatd_agent_enabled" : true,
+    "istatd_agent_host" : "localhost",
+    "istatd_agent_port" : 8111,
+    "istatd_agent_categories_file" : "/etc/istatd.categories",
+    "istatd_agent_prefix" : "paradox",
+    "serve_base" : "/var/www",
+    "sandboxed_commands" : {
+        "safe_echo" : {
+            "command" : "echo",
+            "delim" : "\n",
+            "args" : ["-n"]
+        }
+    },
+    "logger_config" : {
+        "logging" : {
+            "type" : "file",
+            "config" : {
+                "path" : "/var/log/paradox/paradox.log",
+                "bufferSize" : 4096
+            },
+            "level": "info"
+        },
+        "stdout" : {
+            "type" : "stdout",
+            "config" : {
+                "buffersSize" : 4096
+            },
+            "level": "warning"
+        },
+        "access" : {
+            "type" : "access",
+            "config" : {
+                "path" : "/var/log/paradox/access.log",
+                "bufferSize" : 4096
+            },
+            "level": "trace"
+        }
+    },
+    "events_config": {
+    },
+    "fonts_path" : "/var/www/files/",
+    "smtp_server" : "localhost",
+    "source_addr": "paradox-notify@imvu.com",
+    "permalink_dir": "/tmp/links/",
+    "permalink_wait_timeout": 15000000,
+    "base_url": "localhost:3001/",
+    "istatd_req_size": 50
+}

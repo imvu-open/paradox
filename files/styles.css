@@ -1,0 +1,1457 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    min-width: 1000px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100vh;
+    vertical-align: top;
+    overflow: hidden;
+
+    background-color: #E1E2E8;
+}
+
+div {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    vertical-align: top;
+}
+
+div#flex {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+div#menubar {
+    position: relative;
+    color: #585858;
+    text-shadow: 1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 1px #FFFFFF;
+    font-size: 0.9em;
+    padding: 8px 12px 10px 0px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #F9F9FA;
+    box-shadow: inset 0px -1px 0px #D4D5DB;
+}
+
+div#menubar_extra {
+    position: relative;
+    color: #585858;
+    text-shadow: 1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 1px #FFFFFF;
+    font-size: 0.9em;
+    padding: 8px 12px 10px 0px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #F9F9FA;
+    box-shadow: inset 0px -1px 0px #D4D5DB;
+}
+
+div#login {
+    display: none;
+    margin: 12px 0;
+    width: 200px;
+}
+div#login div {
+    display: inline-block;
+}
+div#login input {
+    border: 1px solid #555555;
+    border-bottom-width: 0px;
+    margin: 0;
+    padding: 4px 8px 4px 8px;
+    background-color: #878787;
+    background-image: linear-gradient(top, #999999 5%, #757575 95%);
+    color: #DDDDDD;
+    font-size: 14px;
+    box-shadow: inset 4px 8px 10px #777777;
+    width: 176px;
+    height: 1em;
+}
+div#login input:focus {
+    box-shadow: inset 4px 8px 8px #888888;
+}
+
+div#login input[type=text] {
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+div#login input[type=password] {
+    border-bottom-left-radius: 3px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    width: 121px;
+}
+div#login div.tbutton {
+    margin: 0;
+    font-size: 14px;
+    height: 1em;
+    padding: 4px;
+    text-align: center;
+    border-radius: 0;
+    border: 1px solid #555555;
+    border-bottom-right-radius: 3px;
+    border-bottom-width: 1px;
+    box-shadow: none;
+    width: 46px;
+}
+
+
+div.hsplit_container {
+    width: 2px;
+    padding-right: 20px;
+    position: relative;
+}
+
+div#hide_lefttab {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -9px -168px;
+    position: absolute;
+    top: 16px;
+    left: 1px;
+    z-index: 100;
+    overflow: visible;
+    cursor: pointer;
+}
+
+div#hide_lefttab.closed {
+    background-position: -40px -168px;
+}
+
+div#hide_toptab {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -136px -168px;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    z-index: 100;
+    overflow: visible;
+    cursor: pointer;
+}
+
+div#hide_toptab.closed {
+    background-position: -104px -168px;
+}
+
+div#hide_toptab_extra {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -136px -168px;
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    z-index: 100;
+    overflow: visible;
+    cursor: pointer;
+}
+
+div#hide_toptab_extra.closed {
+    background-position: -104px -168px;
+}
+
+div.tbutton,
+div.tbutton.disabled,
+div.tbutton.disabled:hover,
+div.tbutton.disabled:active {
+    display: inline-block;
+    position: relative; /* makes rounded corners show up in FF */
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px 6px;
+    min-width: 20px;
+    background-color: #E5E5E5;
+    background-image: linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -moz-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -ms-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -webkit-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -o-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#E5E5E5', endColorStr='#C2C2C2');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#E5E5E5', endColorStr='#C2C2C2');
+
+    text-shadow: 1px 0 #ECECEC, 0 1px #ECECEC, 1px 1px #ECECEC;
+    box-shadow: inset -1px 0 #F0F0F0, inset 1px 0 #F0F0F0, 0 0 3px #666666;
+
+    color: #585858;
+    border: solid 1px #1D1D1D;
+    margin: 1px 1px;
+}
+
+div.tbutton {
+    cursor: pointer;
+}
+
+div.tbutton.disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+div.tbutton.active {
+    color: #777777;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -moz-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -ms-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -webkit-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -o-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D5D5D5', endColorStr='#C2C2C2');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D5D5D5', endColorStr='#C2C2C2');
+}
+div.tbutton:hover {
+    color: #777777;
+}
+div.tbutton:active {
+    color: #777777;
+    background-color: #E0E0E0;
+    background-image: linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -moz-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -ms-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -webkit-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -o-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D5D5D5', endColorStr='#C2C2C2');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D5D5D5', endColorStr='#C2C2C2');
+}
+
+div.tbutton.toggle {
+    color: #FFFFFF;
+    background-color: #529DE1;
+    background-image: linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -moz-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -ms-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -webkit-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -o-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#529DE1', endColorStr='#245E8F');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#529DE1', endColorStr='#245E8F');
+    box-shadow: inset 0 1px #7F8FA6, 0 0 3px #666666;
+    text-shadow: 1px 0 #667385, 0 1px #667385, 1px 1px #667385;
+}
+
+div.tbutton.image:after,
+div.tbutton.toggle.image:after,
+div.tbutton.toggle.image:hover:after,
+div.tbutton.toggle.image:active:after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 32px;
+    height: 32px;
+    content: "";
+    opacity: 1;
+}
+
+div.tbutton.image:hover:after {
+    opacity: 0.75;
+}
+
+div.tbutton.image:active:after {
+    opacity: 0.5;
+}
+
+div.tbutton.image.events.toggle:after {
+    background-color: #5A5A5A;
+}
+
+div.tbutton.image.refresh:after {
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -254px -96px;
+}
+
+div.tbutton.image.auto_refresh:after {
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -31px -96px;
+}
+
+div.tbutton.image.auto_refresh.toggle:after {
+    background-image: url("istatd_tree_sprite.png");
+    background-position: 0px -96px;
+}
+
+div.progressbg {
+    visibility: hidden;
+    margin: 4px 44px;
+    background-color: #404040;
+    background-image: linear-gradient(bottom, #606060 5%, #303030 95%);
+    background-image: -moz-linear-gradient(bottom, #606060 5%, #303030 95%);
+    background-image: -ms-linear-gradient(bottom, #606060 5%, #303030 95%);
+    background-image: -webkit-linear-gradient(bottom, #606060 5%, #303030 95%);
+    background-image: -o-linear-gradient(bottom, #606060 5%, #303030 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#606060', endColorStr='#303030');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#606060', endColorStr='#303030');
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    box-shadow: 0px 0px 1px #001122;
+    width: 100px;
+    height: 5px;
+}
+div.progressbg .progressfg {
+    background-color: rgb(220,220,220);
+    background-image: linear-gradient(top, #A0C0A0 5%, #609060 95%);
+    background-image: -moz-linear-gradient(top, #A0C0A0 5%, #609060 95%);
+    background-image: -ms-linear-gradient(top, #A0C0A0 5%, #609060 95%);
+    background-image: -webkit-linear-gradient(top, #A0C0A0 5%, #609060 95%);
+    background-image: -o-linear-gradient(top, #A0C0A0 5%, #609060 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#A0C0A0', endColorStr='#609060');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#A0C0A0', endColorStr='#609060');
+    border-top-left-radius: 3px;
+    -moz-border-top-left-radius: 3px;
+     border-bottom-left-radius: 3px;
+    -moz-border-bottom-left-radius: 3px;
+    width: 0%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.tdropdown.username {
+    display: none;
+    width: 160px;
+    margin: 8px 8px 12px;
+    font-size: 14px;
+}
+
+div.tdropdown {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 0px 6px;
+    background-color: #E5E5E5;
+    background-image: linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -moz-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -ms-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -webkit-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    background-image: -o-linear-gradient(top, #E5E5E5 5%, #C2C2C2 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#E5E5E5', endColorStr='#C2C2C2');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#E5E5E5', endColorStr='#C2C2C2');
+
+    text-shadow: 1px 0 #ECECEC, 0 1px #ECECEC, 1px 1px #ECECEC;
+    box-shadow: inset -1px 0 #F0F0F0, inset 1px 0 #F0F0F0, 0 0 3px #666666;
+    color: #585858;
+    border: solid 1px #1D1D1D;
+    margin: 1px 1px;
+
+    cursor: pointer;
+}
+div.tdropdown:active {
+    background-color: #E0E0E0;
+    background-image: linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -moz-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -ms-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -webkit-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    background-image: -o-linear-gradient(top, #D5D5D5 5%, #C2C2C2 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D5D5D5', endColorStr='#C2C2C2');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D5D5D5', endColorStr='#C2C2C2');
+}
+div.tdropdown div {
+    display: none;
+}
+div.tdropdown div.label {
+    position: relative;
+    display: block;
+    margin-right: 24px;
+    padding: 6px 12px;
+    border-right: 1px solid #1d1d1d;
+}
+div.tdropdown:hover div.label {
+    color: #888888;
+}
+div.tdropdown:active div.label,
+div.tdropdown.open div.label {
+    color: #888888;
+}
+div.tdropdown.condensed div.label {
+    position: relative;
+    display: block;
+    margin-right: 24px;
+    padding: 6px 6px;
+    margin: 0;
+    border: 0px;
+}
+div.tdropdown.condensed div.label:after {
+    background: transparent;
+}
+div.tdropdown div.label:after {
+    display: inline;
+    position: absolute;
+    content: "";
+    top:    13px;
+    right: -22px;
+    width:  12px;
+    height:  8px;
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -202px -109px;
+}
+div.tdropdown:hover div.label:after {
+    opacity: 0.6;
+}
+div.tdropdown:active div.label:after,
+div.tdropdown.open div.label:after {
+    opacity: 0.5;
+}
+div.tdropdown.open div {
+    display: block;
+}
+div.tdropdown.open {
+    background: #D1D2D8;
+}
+div.tdropdown div.reveal {
+    position: absolute;
+    z-index: 200;
+    border: 1px solid #999999;
+    top: 25px;
+    left: -1px;
+
+    color: #585858;
+    background: #F5F5F5;
+    box-shadow: 2px 2px 6px #999999;
+    min-width: 100%;
+}
+div.tdropdown div.tmenuitem {
+    cursor: pointer;
+    padding: 2px 4px 2px 16px;
+}
+div.tdropdown div.tmenuitem:hover {
+    background-color: #E0E0E0;
+}
+div.tdropdown div.tmenuitem:active {
+    color: #888888;
+}
+div.tdropdown div.tmenuitem.current {
+    font-weight: bold !important;
+}
+
+div.tslider {
+    display: inline-block;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+div.tslider .label {
+    display: inline-block;
+    padding-top: 8px;
+    margin-right: 8px;
+}
+div.tslider .widget {
+    display: inline-block;
+    position: relative;
+    padding-top: 18px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+div.tslider .gauge {
+    display: inline-block;
+    position: relative;
+    width: 320px;
+    padding-right: 4px;
+    height: 8px;
+    border: 1px solid #181B1D;
+    border-radius: 4px;
+    background-color: #313336;
+    background-image: linear-gradient(top, #181B1D 0%, #313336 95%);
+    background-image: -moz-linear-gradient(top, #181B1D 0%, #313336 95%);
+    background-image: -ms-linear-gradient(top, #181B1D 0%, #313336 95%);
+    background-image: -webkit-linear-gradient(top, #181B1D 0%, #313336 95%);
+    background-image: -o-linear-gradient(top, #181B1D 0%, #313336 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#181B1D', endColorStr='#313336');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#181B1D', endColorStr='#313336');
+}
+div.tslider .gauge .value {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 8px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #529DE1;
+    background-image: linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -moz-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -ms-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -webkit-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    background-image: -o-linear-gradient(top, #529DE1 0%, #245E8F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#529DE1', endColorStr='#245E8F');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#529DE1', endColorStr='#245E8F');
+}
+div.tslider.manual .gauge .thumb {
+    opacity: 0.75;
+}
+div.tslider.manual .markers {
+    opacity: 0.6;
+}
+div.tslider .gauge .thumb {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 17px;
+    height: 16px;
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -232px -136px;
+}
+div.tslider .markers {
+    font-size: 0.7em;
+    text-shadow: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: #000000;
+}
+div.tslider .markers > .marker {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    cursor: pointer;
+    background-image: url("istatd_tree_sprite.png");
+    background-position: -270px -63px;
+
+}
+div.tslider .markers > .marker:last-child {
+    background-position: -270px -63px;
+}
+div#lefttab {
+    width: 204px;
+    max-height: 100vh;
+    padding-left: 10px;
+    display: inline-block;
+    overflow: hidden;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+}
+
+
+div#lefttab.closed {
+    padding-left: 0px;
+}
+
+div#lefttab h1 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 8px 0px 2px 56px;
+    color: #585858;
+    text-shadow: 1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 1px #FFFFFF;
+}
+
+div#toptab {
+    position: relative;
+    width: 100%;
+    padding-left: 10px;
+    flex: none;
+}
+
+div#toptab.closed {
+    padding-left: 0px;
+    display: none;
+}
+
+div#toptab h1 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 8px 0px 2px 56px;
+    color: #585858;
+    text-shadow: 1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 1px #FFFFFF;
+}
+
+div#toptab_extra {
+    position: relative;
+    width: 100%;
+    padding-left: 10px;
+    flex: none;
+}
+
+div#toptab_extra.closed {
+    padding-left: 0px;
+    display: none;
+}
+
+div#toptab_extra h1 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 8px 0px 2px 56px;
+    color: #585858;
+    text-shadow: 1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 1px #FFFFFF;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+div#grid {
+    flex-grow: 1;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+div#graphs {
+    overflow-x: hidden;
+    overflow-y: auto;
+    /*height: 100vh;*/
+    flex-grow: 1;
+}
+
+div#hsplit {
+    display: inline-block;
+    width: 2px;
+    margin-right: 4px;
+    box-shadow: inset -1px 0px 0px #A2A7AD;
+    border-right: 1px solid #FFFFFF;
+    min-height: 400px;
+    height: 100vh;
+    z-index: 100;
+}
+
+div#hsplit.closed {
+    width: 0px;
+    margin-right: 0px;
+    box-shadow: none;
+    border-right: 0px;
+}
+
+div#hsplitorig {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    margin-right: 4px;
+
+    z-index: 100;
+    box-shadow: inset -1px 0px 0px #A2A7AD;
+    border-right: 1px solid #FFFFFF;
+    min-height: 400px;
+    display: inline-block;
+    width: 6px;
+    height: 100%;
+    top: 0px;
+}
+
+div.areabg {
+    background-color: #E1E2E8;
+}
+
+div#toptab_extra div#tools_extra div.input {
+  display: inline-block;
+}
+
+div#toptab_extra div#tools_extra div.inputs {
+    display: inline-block;
+}
+
+div.dialog {
+    z-index: 200;
+    color: #ECECEC !important;
+    text-shadow: 1px 0 #111111, 0 1px #111111, 1px 1px #111111;
+    box-shadow: 5px 5px 35px #777777;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+/*    width: 50%;
+    height: 50%;
+*/
+    padding: 40px 10px 30px 20px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    min-height: 50px;
+}
+
+div.dialog.wider {
+    width: 85%;
+}
+div.dialog input[type=text] {
+    border: 2px solid #888888;
+    color: #333333;
+    padding: 7px 6px;
+}
+
+div.dialog select {
+    color: #333333;
+    padding: 7px 6px;
+}
+
+div.dialog div.scroll {
+    min-height: 50px;
+    max-height: 100%;
+    margin: 0;
+}
+
+div.dialog div.text {
+    margin-bottom: 1em;
+}
+div.dialog div.tbutton {
+    margin-left: 1em;
+}
+div.dialog div.headings {
+    display: inline-block;
+}
+div.dialog div.headings div.heading {
+    display: inline-block;
+}
+
+div.dialog div.inputs {
+    display: inline-block;
+}
+div.dialog div.inputs div.input {
+    display: inline-block;
+}
+div.dialog div.inputs div.input input {
+    margin-right: 8px;
+}
+div.dialog span.closebox {
+    z-index: 210;
+}
+
+div.dialog.select_daterange div.inputs div.input {
+    width: 15em;
+    margin-bottom: 1em;
+}
+div.dialog.select_daterange div.inputs div.input label {
+    display: block;
+}
+div.dialog.select_daterange div.inputs div.input.maxSamples {
+    width: 30em;
+}
+div.dialog.select_daterange div.tbutton {
+    margin-left: 0em;
+}
+
+div.graph {
+    width: 600px;
+    border: 5px solid #FFFFFF;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin: 2px;
+    background-color: #F5F5F5;
+    display: inline-block;
+}
+div.graph.selected {
+    border-color: #91B2DC;
+}
+
+div.graph span.label, div.graph div.legend {
+    font-size: 60%;
+    word-wrap: break-word;
+    padding: 0px;
+    margin: 16px 0px 0px 32px;
+}
+
+div.graph span.label span, div.graph div.legend span {
+    display: block;
+    padding: 0px;
+    margin: 0px 1em 0px 0px;
+}
+
+div.graph div.legend {
+    overflow: hidden;
+}
+
+div.graph div.legend span.legend-bubble div[style] {
+    bottom: -1ex !important;
+}
+
+div.graph div.legend span.highlight {
+    font-style: italic;
+    background-color: #FFFF00;
+}
+
+div.graph div.legend span.legend-bubble {
+    background-color: #EDEDED;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 8px;
+    padding-right: 20px;
+    position: relative;
+/*    cursor: pointer; */
+    display: block;
+    float: left;
+}
+/*
+div.graph div.legend span:before {
+    content: "";
+    background: transparent url("istatd_tree_sprite.png") no-repeat -12px -140px; 
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+}
+*/
+
+div.graph div.legend span:hover:before {
+    opacity: 0.5;
+}
+
+div.graph div.legend span:active:before {
+    opacity: 0.25;
+}
+
+div.graph div.legend span.closeit:first-child:last-child {
+    padding-right: 8px;
+    cursor: default;
+}
+
+div.graph div.legend span.closeit:first-child:last-child:before {
+    background: transparent;
+}
+div.graph div.legend span.closeit:before {
+    content: "";
+    background: transparent url("istatd_tree_sprite.png") no-repeat -12px -140px;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+}
+
+div.graph div.legend span.closeit:hover:before {
+    opacity: 0.5;
+}
+
+div.graph div.legend span.closeit:active:before {
+    opacity: 0.25;
+}
+
+div.graph div.summary {
+    display: none;
+    background: transparent;
+    font-size: 90%;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    margin-left: 3em;
+}
+
+div.graph div.summary.visible {
+    display: block;
+}
+
+div.prompt {
+    background-color: #676767;
+}
+
+div.functions-list {
+    background-color: #676767;
+    right: 5%;
+    top: 25%;
+    left: auto;
+    width: 40%;
+    height: 80%;
+}
+
+div.functions-info {
+    background-color: #676767;
+    left: -60%;
+    top: 10%;
+    width: 50%;
+    height: 80%;
+}
+
+
+pre.wrap {
+    white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    white-space: pre-line;      /* CSS 3.0 */
+    white-space: -pre-wrap;     /* Opera 4-6 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -hp-pre-wrap;  /* HP Printers */
+    word-wrap: break-word;      /* IE 5+ */
+}
+
+div.error {
+    background-color: #902020 !important;
+    z-index: 500 !important;
+    font-size: 60%;
+}
+div.error span.closebox {
+    z-index: 510 !important;
+}
+div.graph span.closebox {
+    z-index: 110;
+}
+
+span.buttonbox {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+span.buttonbox:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+}
+span.buttonbox:hover:before {
+    opacity: 0.75;
+}
+span.buttonbox:active:before {
+    opacity: 0.5;
+}
+
+span.inline-block {
+    display: inline-block;
+}
+
+span.closebox {
+    right: 5px;
+    top: 5px;
+}
+div.dialog span.closebox {
+    right: 10px;
+    top: 10px;
+}
+span.closebox:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -136px -136px;
+}
+
+span.left_closebox {
+    left: 5px;
+    top: 5px;
+}
+div.dialog span.left_closebox {
+    left: 10px;
+    top: 10px;
+}
+span.left_closebox:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -136px -136px;
+}
+
+
+span.closebutton:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -136px -136px;
+}
+
+div.graph span.zoomoutbox {
+    z-index: 110;
+}
+span.zoomoutbox {
+    right: 25px;
+    top: 5px;
+}
+span.zoomoutbox:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -102px -136px;
+}
+
+div.graph span.settingsbox {
+    z-index: 120;
+}
+span.settingsbox {
+    right: 45px;
+    top: 5px;
+}
+span.settingsbox:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -40px -136px;
+}
+
+div.graph span.querybox {
+    z-index: 120;
+}
+span.querybox {
+    right: 89px;
+    top: 5px;
+}
+span.querybox:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -265px -40px;
+}
+
+div.graph span.summarybox {
+    z-index: 130;
+}
+span.summarybox {
+    right: 67px;
+    top: 5px;
+}
+span.summarybox:before {
+    background: transparent url("istatd_tree_sprite.png") no-repeat -73px -136px;
+}
+
+ul.picklist {
+    white-space: nowrap;
+    padding: 0px;
+    padding-left: 2px;
+    margin: 0px;
+}
+
+ul.picklist li.pick {
+    position: relative;
+    line-height: 20px;
+}
+
+ul.picklist li.pick span.text:before {
+    content: " ";
+    cursor: pointer;
+    background: transparent url("istatd_tree_sprite.png") no-repeat -168px -102px;
+    width: 16px;
+    height: 16px;
+    padding-right: 20px;
+    line-height: 20px;
+}
+
+ul.picklist li.pick.current {
+    font-weight: bold;
+}
+
+ul.picklist li.pick:hover {
+    background-color: #D1D2D8;
+}
+
+ul.picklist li.disabled {
+    color: #a0a0a0;
+}
+
+ul.picklist li.pick span.text {
+    line-height: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+ul.picklist li.pick span.remove_button {
+    line-height: 20px;
+
+    display: none;
+    background: transparent url("istatd_tree_sprite.png") no-repeat -136px -136px;
+    position: absolute;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    right: 2px;
+}
+ul.picklist li.pick:hover span.remove_button {
+    display: inline-block;
+}
+ul.picklist li.pick span.remove_button:hover {
+    display: inline-block;
+    opacity: 0.75;
+}
+ul.picklist li.pick span.remove_button:active {
+    display: inline-block;
+    opacity: 0.5;
+}
+
+div.tabs > div.tab {
+    display: none;
+    width: 100%;
+}
+
+div#dashboards div.scroll {
+    overflow-x: auto;
+    overflow-y: auto;
+    height:100%;
+}
+
+div#dashboards {
+    height:100%;
+    overflow:hidden;
+}
+
+div#counters div.scroll {
+    overflow-x: auto;
+    overflow-y: auto;
+    height: calc(100% - 41px);
+}
+
+div#counters {
+    height:100%;
+    overflow:hidden;
+}
+
+div.tabs > div.labels {
+    display: block;
+    width: 100%;
+    height: 32px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 12px;
+    flex: none;
+}
+div.tabs > div.labels > div.tabtop {
+    display: inline-block;
+    background-color: #E1E2E8;
+    border-top: solid 1px #667385;
+    border-bottom: solid 1px #667385;
+    box-shadow: inset 0 1px #FFFFFF, 0 1px #FFFFFF;
+    text-shadow: 1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 1px #FFFFFF;
+    width: 80px;
+    padding: 3px 8px;
+    margin-top: 2px;
+    text-align: center;
+}
+div.tabs > div.labels > div.tabtop:first-child {
+    border-left: solid 1px #667385;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -moz-border-top-left-radius: 6px;
+    -moz-border-bottom-left-radius: 6px;
+}
+div.tabs > div.labels > div.tabtop:last-child {
+    border-right: solid 1px #667385;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    -moz-border-top-right-radius: 6px;
+    -moz-border-bottom-right-radius: 6px;
+}
+div.tabs > div.labels > div.tabtop.active {
+    position: relative;
+    box-shadow: inset 0 1px #7F8FA6, 0 1px #FFFFFF;
+    text-shadow: 1px 0 #667385, 0 1px #667385, 1px 1px #667385;
+    background-color: #8C9DB6;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+div.tabs > div.labels > div.tabtop.active:before {
+    position: absolute;
+    bottom: -8px;
+    left: 40%;
+    width: 0;
+    content: "";
+    border-color: #667385 transparent;
+    border-style: solid;
+    border-width: 8px 8px 0;
+}
+div.tabs > div.labels > div.tabtop.active:after {
+    position: absolute;
+    bottom: -7px;
+    left: 40%;
+    width: 0;
+    content: "";
+    border-color: #8C9DB6 transparent;
+    border-style: solid;
+    border-width: 8px 8px 0;
+}
+div.tabs > div.active.tab {
+    display: block;
+}
+
+
+#counter_filter {
+    position: relative;
+}
+
+#counter_filter #counter_filter_label {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    font-size: 0.8em;
+    color: #7A7F82;
+}
+
+#counter_filter #counter_filter_clear {
+    position: absolute;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: url("istatd_tree_sprite.png") -136px -136px no-repeat;
+    display: inline-block;
+    padding: none;
+    margin: 0px 0px 0px 5px;
+    border: none;
+}
+
+#counter_filter_clear:hover {
+    opacity: 0.75;
+}
+#counter_filter_clear:active {
+    opacity: 0.5;
+}
+
+
+#counter_filter input {
+    border: 0;
+    width: 148px;
+    margin: 2px 0 16px 0;
+    padding: 4px 24px 4px 8px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    color: #333333;
+    box-shadow: 0 1px 2px #CCCCCC;
+    display: inline-block;
+}
+
+.magnifying_glass {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 5px;
+    left: 158px;
+    background: url("istatd_tree_sprite.png") -199px -135px no-repeat;
+}
+
+
+.point-select {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    max-height: 30px;
+    visibility: hidden;
+    border: 1px solid #555555;
+    pointer-events: none;
+    text-align: center;
+    background-color: #FFFF00;
+}
+
+.point-select .content {
+    font-size: 70%;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.hairline-info {
+    border: 1px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    display: table;  /* shrink to fit */
+    min-width: 10px;
+
+    z-index: 100;  /* should appear on top of the chart */
+    padding: 3px;
+    background: white;
+    font-size: 14px;
+/*    cursor: move; */
+}
+
+.hairline-wrapper {
+    z-index: 100;  /* should appear on top of the chart */
+}
+
+.dygraph-hairline.selected div {
+    left: 2px !important;
+    width: 2px !important;
+}
+
+.hairline-info.selected {
+    border: 2px solid black;
+    padding: 2px;
+}
+
+.hairline-wrapper > .hairline-info {
+    display: none;
+}
+
+.hairline-wrapper:hover > .hairline-info {
+    display: table;
+}
+
+.dygraph-hairline:hover + .hairline-wrapper > .hairline-info {
+    display: table;
+    z-index: 50;
+}
+
+.dygraph-hairline:hover + .hairline-wrapper {
+    z-index: 50;
+}
+
+span.color0 {
+    color: #800000;
+}
+span.color1 {
+    color: #603000;
+}
+span.color2 {
+    color: #306000;
+}
+span.color3 {
+    color: #008000;
+}
+span.color4 {
+    color: #006030;
+}
+span.color5 {
+    color: #003060;
+}
+span.color6 {
+    color: #000080;
+}
+span.color7 {
+    color: #300060;
+}
+span.color8 {
+    color: #600030;
+}
+span.color9 {
+    color: #a03030;
+}
+span.color10 {
+    color: #806030;
+}
+span.color11 {
+    color: #608030;
+}
+span.color12 {
+    color: #30a030;
+}
+span.color13 {
+    color: #308060;
+}
+span.color14 {
+    color: #306080;
+}
+span.color15 {
+    color: #3030a0;
+}
+span.color16 {
+    color: #603080;
+}
+span.color17 {
+    color: #803060;
+}
+
+span.nobreak {
+    display: inline-block;
+    margin-right: 0.75em;
+}
+
+/*
+.jstree-default-large .jstree-node,
+.jstree-default-large .jstree-icon,
+.jstree-default-large .jstree-file,
+.jstree-default-large .jstree-folder,
+.jstree-default-small .jstree-node,
+.jstree-default-small .jstree-icon,
+.jstree-default-small .jstree-file,
+.jstree-default-small .jstree-folder,
+.jstree-default .jstree-node,
+.jstree-default .jstree-icon,
+.jstree-default .jstree-file,
+.jstree-default .jstree-folder,
+#jstree-dnd.jstree-default .jstree-ok,
+#jstree-dnd.jstree-default .jstree-er {
+    background-image: url("istatd_tree_sprite.png");
+}
+*/
+
+.jstree-default .jstree-node,
+.jstree-default .jstree-icon {
+    background-image: url("istatd_tree_sprite.png");
+}
+
+.jstree-default .jstree-file {
+  background: url("istatd_tree_sprite.png") -100px -68px no-repeat;
+}
+
+.jstree-default .jstree-folder {
+  background: url("istatd_tree_sprite.png") -260px -4px no-repeat;
+}
+
+.istatd-counter .jstree-icon {
+    background-position: -162px -69px;
+}
+
+.istatd-gauge .jstree-icon {
+    background-position: -129px -69px;
+}
+
+.jstree-default .jstree-last {
+  background: transparent;
+}
+
+div.functions-list div.scroll {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.function-help {
+    color: #ECECEC !important;
+    text-shadow: 1px 0 #111111, 0 1px #111111, 1px 1px #111111;
+}
+
+.function-help span.name {
+    font-weight: bold;
+}
+
+.function-help span.description {
+}
+
+.function-help span.type {
+}
+
+.function-help span.aliases {
+    font-style: italic;
+}
+
+.function-help div.name {
+}
+
+.function-help div.description {
+    padding-left: 10%;
+}
+
+.function-help div.type {
+}
+
+.function-help div.aliases {
+    padding-left: 10%;
+}
+
+div.func-arg {
+    display: inline;
+}
+
+div.func-arg.fake-hover {
+    background-color: #777777;
+}
+
+.fake-hover .fake-hover {
+    background-color: #676767;
+}
+
+
+.function-type {
+    color: #ECECEC !important;
+    text-shadow: 1px 0 #111111, 0 1px #111111, 1px 1px #111111;
+}
+
+.function-type span.name {
+    font-weight: bold;
+}
+
+.function-type span.type {
+}
+
+.function-type span.args-needed {
+    font-style: italic;
+}
+
+.function-type div.name {
+}
+
+.function-type div.type {
+    padding-left: 10%;
+}
+
+.function-type div.args-needed {
+}

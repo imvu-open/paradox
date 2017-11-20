@@ -1,0 +1,13 @@
+#!/bin/bash
+
+export STACK_ROOT=~/.stack-opt-ghc
+export STACK_YAML=./stack-custom.yaml
+export PATH=/opt/ghc/imvu-ghc-8.0.2/bin:$PATH
+
+#stack exec -- ghc --info
+
+if [ ! -z "$*" ]; then
+  set -e
+  "$@"
+  set +e
+fi
