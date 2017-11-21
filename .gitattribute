@@ -1,1 +1,2 @@
-files/* linguist-vendored
+* linguist-vendored
+*.hs linguist-vendored=false
