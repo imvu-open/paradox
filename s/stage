@@ -8,13 +8,10 @@ STAGEBASE=$BASEDIR/dist/staging
 
 PROJECT_TAG="$1"
 REV="$2"
-TARGET="$3"
 
 DISTRIB_CODENAME=static
 
 FLAVOR=standard
-
-scp "$STAGEBASE/${PROJECT_TAG}-$REV.tar.bz2" "$TARGET"
 
 pushd $STAGEBASE
 jfrog rt upload --flat=false "${PROJECT_TAG}-$REV.tar.bz2" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
