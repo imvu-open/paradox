@@ -7,14 +7,16 @@ BASEDIR=$(cd "$(dirname "$0")"/..; pwd -P)
 STAGEBASE=$BASEDIR/dist/staging
 
 PROJECT_TAG="$1"
-REV="$2"
+REV=$(git rev-parse HEAD)
 
 DISTRIB_CODENAME=static
 
 FLAVOR=standard
 
 pushd $STAGEBASE
-jfrog rt upload --flat=false "${PROJECT_TAG}-$REV.tar.bz2" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+if jfrog rt search "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/${PROJECT_TAG}-${REV}.tar.bz2" | grep "Found 0 artifacts" > /dev/null; then
+    jfrog rt upload --flat=false "${PROJECT_TAG}-${REV}.tar.bz2" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+fi
 popd
 
 UNPACKDIR=$STAGEBASE/unpack-dir-$RANDOM
@@ -23,7 +25,9 @@ pushd $UNPACKDIR
 tar -xjvf "$STAGEBASE/${PROJECT_TAG}-$REV.tar.bz2"
 
 for f in files bin; do
-  jfrog rt upload --flat=false "$f/" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+    if jfrog rt search "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/$f/" | grep "Found 0 artifacts" > /dev/null; then
+        jfrog rt upload --flat=false "$f/" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+    fi
 done
 
 popd
