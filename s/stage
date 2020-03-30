@@ -24,11 +24,12 @@ mkdir -p $UNPACKDIR
 pushd $UNPACKDIR
 tar -xjvf "$STAGEBASE/${PROJECT_TAG}-$REV.tar.bz2"
 
-for f in files bin; do
-    if jfrog rt search "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/$f/" | grep "Found 0 artifacts" > /dev/null; then
-        jfrog rt upload --flat=false "$f/" "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
-    fi
-done
+if jfrog rt search "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/files/" | grep "Found 0 artifacts" > /dev/null; then
+    jfrog rt upload --flat=false files/ "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/"
+fi
+if jfrog rt search "paradox/${REV}/${DISTRIB_CODENAME}/${FLAVOR}/bin/paradox" | grep "Found 0 artifacts" > /dev/null; then
+    jfrog rt upload bin/paradox "paradox/${REV}/"
+fi
 
 popd
 
